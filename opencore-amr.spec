@@ -5,7 +5,7 @@ Version:	0.1.2
 Release:	1
 License:	Apache v2.0
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/opencore-amr/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/opencore-amr/%{name}-%{version}.tar.gz
 # Source0-md5:	8e8b8b253eb046340ff7b6bf7a6ccd3e
 URL:		http://opencore-amr.sourceforge.net/
 BuildRequires:	autoconf
@@ -24,8 +24,8 @@ project.
 
 %description -l pl.UTF-8
 Biblioteka ta zawiera implementację specyfikaci 3GPP TS 26.073 kodeka
-mowy Adaptive Multi Rate (AMR) oraz implementację specyfikacji 3GPP
-TS 26.173 dekodera mowy Adaptive Multi-Rate - Wideband (AMR-WB).
+mowy Adaptive Multi Rate (AMR) oraz implementację specyfikacji 3GPP TS
+26.173 dekodera mowy Adaptive Multi-Rate - Wideband (AMR-WB).
 Implementacja pochodzi ze szkieletu OpenCORE, części projektu Google
 Android.
 
@@ -55,6 +55,8 @@ Statyczna biblioteka opencore-amr.
 
 %prep
 %setup -q
+
+rm -f m4/libtool.m4 m4/lt*.m4
 
 %build
 %{__libtoolize}
