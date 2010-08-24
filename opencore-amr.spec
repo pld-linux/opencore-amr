@@ -2,7 +2,7 @@ Summary:	OpenCORE Framework implementation of Adaptive Multi Rate Narrowband and
 Summary(pl.UTF-8):	Szkielet OpenCORE kodeków mowy Adaptive Multi Rate Narrowband i Wideband
 Name:		opencore-amr
 Version:	0.1.2
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/opencore-amr/%{name}-%{version}.tar.gz
