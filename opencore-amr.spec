@@ -8,10 +8,10 @@ Group:		Libraries
 Source0:	http://downloads.sourceforge.net/opencore-amr/%{name}-%{version}.tar.gz
 # Source0-md5:	8e8b8b253eb046340ff7b6bf7a6ccd3e
 URL:		http://opencore-amr.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,7 +23,7 @@ derived from the OpenCORE framework, part of the Google Android
 project.
 
 %description -l pl.UTF-8
-Biblioteka ta zawiera implementację specyfikaci 3GPP TS 26.073 kodeka
+Biblioteka ta zawiera implementację specyfikacji 3GPP TS 26.073 kodeka
 mowy Adaptive Multi Rate (AMR) oraz implementację specyfikacji 3GPP TS
 26.173 dekodera mowy Adaptive Multi-Rate - Wideband (AMR-WB).
 Implementacja pochodzi ze szkieletu OpenCORE, części projektu Google
@@ -34,6 +34,7 @@ Summary:	Header files for opencore-amr library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki opencore-amr
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 Header files for opencore-amr library.
@@ -56,7 +57,7 @@ Statyczna biblioteka opencore-amr.
 %prep
 %setup -q
 
-rm -f m4/libtool.m4 m4/lt*.m4
+%{__rm} m4/libtool.m4 m4/lt*.m4
 
 %build
 %{__libtoolize}
