@@ -1,17 +1,17 @@
 Summary:	OpenCORE Framework implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 Summary(pl.UTF-8):	Szkielet OpenCORE kodeków mowy Adaptive Multi Rate Narrowband i Wideband
 Name:		opencore-amr
-Version:	0.1.3
-Release:	2
+Version:	0.1.5
+Release:	1
 License:	Apache v2.0
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/opencore-amr/%{name}-%{version}.tar.gz
-# Source0-md5:	09d2c5dfb43a9f6e9fec8b1ae678e725
+# Source0-md5:	e0798587b91411cc092aa73091a97dfc
 URL:		http://opencore-amr.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool >= 2:1.5
+BuildRequires:	libtool >= 2:2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,7 +62,6 @@ Statyczna biblioteka opencore-amr.
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
-%{__autoheader}
 %{__automake}
 %configure \
 	--disable-silent-rules
@@ -82,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc ChangeLog README
 %attr(755,root,root) %{_libdir}/libopencore-amrnb.so.*.*.*
 %attr(755,root,root) %{_libdir}/libopencore-amrwb.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libopencore-amrnb.so.0
