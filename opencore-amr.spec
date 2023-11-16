@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static libraries
+
 Summary:	OpenCORE Framework implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 Summary(pl.UTF-8):	Szkielet OpenCORE kodeków mowy Adaptive Multi Rate Narrowband i Wideband
 Name:		opencore-amr
@@ -12,6 +16,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2
+BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,7 +69,8 @@ Statyczna biblioteka opencore-amr.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{__enable_disable static_libs static}
 %{__make}
 
 %install
@@ -98,7 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/opencore-amrnb.pc
 %{_pkgconfigdir}/opencore-amrwb.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libopencore-amrnb.a
 %{_libdir}/libopencore-amrwb.a
+%endif
